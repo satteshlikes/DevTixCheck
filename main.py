@@ -28,7 +28,7 @@ def get_from_api_jira(a_list):
             data = json.load(json_obj)
             status = data['fields']['status']['name']
             fix_versions = data['fields']['fixVersions']
-            if str(status) == 'Resolved':
+            if str(status) == 'Resolved' or str(status) == 'Closed':
                 fix_versions = str(fix_versions[0]['name'])
                 list_with_info = [elem[0], elem[1], str(status), str(fix_versions)]
                 result += (list_with_info,)
